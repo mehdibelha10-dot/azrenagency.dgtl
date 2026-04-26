@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AZREN – Formations Marketing Digital MRR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3B6FFF;
+  --blue-soft:rgba(59,111,255,0.08);
+  --blue-line:rgba(59,111,255,0.18);
+  --bg:#06070D;
+  --bg2:#0A0C15;
+  --bg3:#0E1120;
+  --bg4:#131729;
+  --text:#E8ECFF;
+  --muted:#8A90B0;
+  --muted2:#5A6080;
+  --line:rgba(59,111,255,0.12);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+/* ── TOPBAR ─────────────────────────────────────────────── */
+.topbar{
+  background:var(--blue);text-align:center;
+  padding:9px 16px;font-size:11.5px;font-weight:600;
+  color:#fff;letter-spacing:.07em;text-transform:uppercase;
+}
+
+/* ── NAV ────────────────────────────────────────────────── */
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 48px;border-bottom:1px solid var(--line);
+  position:sticky;top:0;background:rgba(6,7,13,.96);
+  backdrop-filter:blur(16px);z-index:100;
+}
+.logo{
+  font-family:'Syne',sans-serif;font-size:19px;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text);text-decoration:none;
+  display:flex;align-items:center;gap:9px;
+}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
+.nav-btn{
+  background:var(--blue);color:#fff;
+  padding:10px 22px;border-radius:8px;
+  font-weight:600;font-size:13px;text-decoration:none;
+  transition:opacity .2s;white-space:nowrap;
+}
+.nav-btn:hover{opacity:.85}
+
+/* ── HERO ───────────────────────────────────────────────── */
+.hero{
+  position:relative;min-height:95vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:100px 24px 80px;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:-200px;left:50%;transform:translateX(-50%);
+  width:800px;height:800px;
+  background:radial-gradient(circle,rgba(59,111,255,.11) 0%,transparent 66%);
+  pointer-events:none;
+}
+.pill{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--blue-line);background:var(--blue-soft);
+  color:var(--blue);padding:7px 18px;border-radius:50px;
+  font-size:11px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.12em;margin-bottom:34px;
+  animation:up .7s ease both;
+}
+.pill-dot{width:5px;height:5px;border-radius:50%;background:var(--blue);animation:blink 1.6s infinite}
+h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(44px,7.5vw,100px);
+  font-weight:800;line-height:.9;letter-spacing:-.02em;
+  max-width:900px;animation:up .7s .1s ease both;
+}
+h1 .blue{color:var(--blue)}
+h1 .dim{font-weight:400;color:var(--muted)}
+.hero-sub{
+  font-size:clamp(15px,1.8vw,18px);color:var(--muted);
+  font-weight:300;max-width:500px;
+  margin:26px auto 50px;animation:up .7s .2s ease both;
+}
+.ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:up .7s .3s ease both}
+.btn-main{
+  background:var(--blue);color:#fff;
+  padding:15px 38px;border-radius:10px;
+  font-weight:700;font-size:14px;text-decoration:none;
+  transition:all .2s;
+}
+.btn-main:hover{opacity:.88;transform:translateY(-2px)}
+.btn-ghost{
+  background:transparent;color:var(--muted);
+  padding:15px 32px;border-radius:10px;font-weight:500;
+  font-size:14px;text-decoration:none;
+  border:1px solid var(--line);transition:all .2s;
+}
+.btn-ghost:hover{border-color:var(--blue);color:var(--text)}
+
+/* ── NUMBAR ─────────────────────────────────────────────── */
+.numbar{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--bg2);
+}
+.n{padding:30px 48px;text-align:center;border-right:1px solid var(--line);flex:1;min-width:140px}
+.n:last-child{border-right:none}
+.n-v{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;line-height:1}
+.n-v b{color:var(--blue)}
+.n-l{font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-top:5px}
+
+/* ── SECTIONS BASE ──────────────────────────────────────── */
+.sep{height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+section{padding:90px 24px}
+.wrap{max-width:1100px;margin:0 auto}
+.s-tag{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--blue);margin-bottom:12px}
+.s-h{font-family:'Syne',sans-serif;font-size:clamp(28px,4.5vw,56px);font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--text);margin-bottom:14px}
+.s-h .blue{color:var(--blue)}
+.s-d{color:var(--muted);font-size:16px;font-weight:300;max-width:460px}
+
+/* ── PACKS GRID ─────────────────────────────────────────── */
+.packs-bg{background:var(--bg2)}
+.packs-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:24px;margin-top:56px;
+}
+@media(max-width:720px){.packs-grid{grid-template-columns:1fr}}
+
+.pack{
+  background:var(--bg3);border:1px solid var(--line);
+  border-radius:20px;padding:40px 36px;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .2s,border-color .2s;
+}
+.pack:hover{transform:translateY(-4px);border-color:var(--blue-line)}
+.pack.featured{
+  border-color:var(--blue);
+  background:linear-gradient(160deg,rgba(59,111,255,.07) 0%,var(--bg3) 100%);
+}
+.pack::before{
+  content:'';position:absolute;
+  top:-80px;left:50%;transform:translateX(-50%);
+  width:280px;height:280px;
+  background:radial-gradient(circle,rgba(59,111,255,.09) 0%,transparent 70%);
+  pointer-events:none;
+}
+.pack-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--blue-soft);border:1px solid var(--blue-line);
+  color:var(--blue);padding:5px 14px;border-radius:50px;
+  font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;margin-bottom:20px;align-self:flex-start;
+}
+.pack-name{
+  font-family:'Syne',sans-serif;font-size:28px;font-weight:800;
+  color:var(--text);margin-bottom:6px;
+}
+.pack-sub{font-size:14px;color:var(--muted);font-weight:300;margin-bottom:24px;line-height:1.6}
+.pack-divider{height:1px;background:var(--line);margin:24px 0}
+.pack-price{
+  font-family:'Syne',sans-serif;font-size:58px;
+  font-weight:800;color:var(--blue);line-height:1;
+  margin-bottom:4px;
+}
+.pack-price sup{font-size:24px;vertical-align:super}
+.pack-old{font-size:13px;color:var(--muted2);text-decoration:line-through;margin-bottom:28px}
+.pack-feats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:32px;flex:1}
+.pack-feats li{
+  display:flex;align-items:flex-start;gap:11px;
+  font-size:14px;color:var(--muted);font-weight:300;line-height:1.55;
+}
+.pack-feats li::before{
+  content:'';flex-shrink:0;width:16px;height:16px;margin-top:2px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' stroke='%233B6FFF' stroke-width='1.2' fill='none'/%3E%3Cpath d='M5 8l2.5 2.5 4-4' stroke='%233B6FFF' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-size:contain;
+}
+.pack-cta{
+  display:block;text-align:center;
+  padding:15px;border-radius:10px;
+  font-weight:700;font-size:14px;
+  text-decoration:none;transition:all .2s;
+  letter-spacing:.03em;
+}
+.pack-cta-blue{background:var(--blue);color:#fff}
+.pack-cta-blue:hover{opacity:.88}
+.pack-cta-outline{border:1px solid var(--blue-line);color:var(--text)}
+.pack-cta-outline:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+.pack-note{font-size:11px;color:var(--muted2);text-align:center;margin-top:10px}
+
+/* ── COMPARATIF ─────────────────────────────────────────── */
+.comp-table{
+  width:100%;border-collapse:collapse;margin-top:52px;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+}
+.comp-table th,.comp-table td{
+  padding:16px 20px;text-align:left;
+  border-bottom:1px solid var(--line);font-size:14px;
+}
+.comp-table thead th{
+  background:var(--bg3);font-family:'Syne',sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted2);
+}
+.comp-table thead th:first-child{color:var(--muted2)}
+.comp-table thead th:not(:first-child){text-align:center;color:var(--blue)}
+.comp-table tbody tr{background:var(--bg2)}
+.comp-table tbody tr:hover{background:var(--bg3)}
+.comp-table tbody tr:last-child td{border-bottom:none}
+.comp-table td:first-child{color:var(--muted);font-weight:400}
+.comp-table td:not(:first-child){text-align:center}
+.yes{color:var(--blue);font-size:16px}
+.no{color:var(--muted2);font-size:16px}
+
+/* ── MODULES ────────────────────────────────────────────── */
+.mod-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1px;margin-top:52px;
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;
+}
+.mod{background:var(--bg3);padding:28px 24px;transition:background .2s}
+.mod:hover{background:var(--bg4)}
+.mod-n{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;color:var(--blue);letter-spacing:.14em;margin-bottom:12px;opacity:.7}
+.mod h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:7px;color:var(--text)}
+.mod p{color:var(--muted);font-size:13px;font-weight:300;line-height:1.65}
+
+/* ── TESTI ──────────────────────────────────────────────── */
+.testi-bg{background:var(--bg2)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:52px}
+.tc{background:var(--bg3);border:1px solid var(--line);border-radius:12px;padding:26px 22px}
+.tst{color:var(--blue);font-size:12px;letter-spacing:3px;margin-bottom:12px}
+.tt{font-size:13px;color:var(--muted);font-style:italic;line-height:1.75;margin-bottom:16px;font-weight:300}
+.tn{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--text)}
+.tr{font-size:11px;color:var(--muted2)}
+
+/* ── FAQ ────────────────────────────────────────────────── */
+.faq-wrap{max-width:640px;margin:52px auto 0;display:flex;flex-direction:column;gap:9px}
+.fi{background:var(--bg3);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.fq{width:100%;background:none;border:none;color:var(--text);font-family:'Inter',sans-serif;font-size:14px;font-weight:500;padding:18px 22px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:color .2s}
+.fq:hover{color:var(--blue)}
+.fq .ic{flex-shrink:0;width:20px;height:20px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;transition:transform .25s,border-color .2s;color:var(--muted2)}
+.fa{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;color:var(--muted);font-size:13px;font-weight:300;padding:0 22px;line-height:1.8}
+.fi.open .fa{max-height:200px;padding:0 22px 18px}
+.fi.open .fq{color:var(--blue)}
+.fi.open .fq .ic{transform:rotate(45deg);border-color:var(--blue);color:var(--blue)}
+
+/* ── FINAL CTA ──────────────────────────────────────────── */
+.fcta{
+  background:var(--bg2);border-top:1px solid var(--line);
+  text-align:center;padding:96px 24px;
+  position:relative;overflow:hidden;
+}
+.fcta::before{
+  content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:600px;height:500px;
+  background:radial-gradient(circle,rgba(59,111,255,.09) 0%,transparent 70%);
+  pointer-events:none;
+}
+.fcta h2{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(30px,5vw,68px);font-weight:800;
+  letter-spacing:-.02em;line-height:1;
+  max-width:740px;margin:0 auto 18px;
+}
+.fcta h2 .blue{color:var(--blue)}
+.fcta p{color:var(--muted);font-size:16px;font-weight:300;margin-bottom:36px}
+.fcta-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.insta-link{
+  margin-top:28px;display:inline-flex;align-items:center;gap:8px;
+  color:var(--muted);font-size:13px;text-decoration:none;transition:color .2s;
+}
+.insta-link:hover{color:var(--blue)}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer{
+  background:var(--bg);border-top:1px solid var(--line);
+  padding:28px 48px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;
+}
+footer p{font-size:12px;color:var(--muted2)}
+footer a{font-size:12px;color:var(--blue);text-decoration:none}
+
+/* ── ANIMS ──────────────────────────────────────────────── */
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+@media(max-width:640px){
+  nav{padding:14px 20px}
+  .n{padding:22px 20px}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">🚀 2 formations MRR disponibles — Accès immédiat + Droits de revente 100% inclus</div>
+
+<nav>
+  <a class="logo" href="#"><span class="logo-dot"></span>AZREN</a>
+  <a class="nav-btn" href="#packs">Voir les formations</a>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="pill"><span class="pill-dot"></span>Marketing Digital · MRR · 2 Formations</div>
+  <h1>
+    2 formations.<br>
+    <span class="blue">100% des profits.</span><br>
+    <span class="dim">Toi qui décides.</span>
+  </h1>
+  <p class="hero-sub">Choisis la formation qui te correspond, revends-la à l'infini et garde chaque euro. Sans expérience. Sans produit à créer.</p>
+  <div class="ctas">
+    <a href="#packs" class="btn-main">Choisir ma formation →</a>
+    <a href="#modules" class="btn-ghost">Voir les modules</a>
+  </div>
+</section>
+
+<!-- ── NUMBAR ─────────────────────────────────────────────────── -->
+<div class="numbar">
+  <div class="n"><div class="n-v"><b>2</b></div><div class="n-l">Formations MRR</div></div>
+  <div class="n"><div class="n-v"><b>100</b>%</div><div class="n-l">Bénéfices pour toi</div></div>
+  <div class="n"><div class="n-v"><b>22</b>+</div><div class="n-l">Modules / formation</div></div>
+  <div class="n"><div class="n-v"><b>∞</b></div><div class="n-l">Reventes illimitées</div></div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ── PACKS ──────────────────────────────────────────────────── -->
+<section class="packs-bg" id="packs">
+  <div class="wrap" style="text-align:center">
+    <span class="s-tag">Choisir ta formation</span>
+    <h2 class="s-h">2 packs. <span class="blue">1 seul objectif.</span><br>Générer des revenus.</h2>
+    <p class="s-d" style="margin:0 auto">Deux formations MRR complémentaires. Achète l'une, l'autre, ou les deux — et revends à l'infini.</p>
+
+    <div class="packs-grid">
+
+      <!-- PACK ELM -->
+      <div class="pack">
+        <div class="pack-badge">⚡ Formation 1</div>
+        <div class="pack-name">ELM</div>
+        <div class="pack-sub">La formation marketing digital complète pour construire et vendre ton business en ligne de A à Z.</div>
+        <div class="pack-divider"></div>
+        <div class="pack-price"><sup>€</sup>497</div>
+        <div class="pack-old">Valeur : 997€</div>
+        <ul class="pack-feats">
+          <li>22+ modules de marketing digital complets</li>
+          <li>Mindset, MRR, e-commerce & automatisation</li>
+          <li>Copywriting & storytelling pour vendre sans forcer</li>
+          <li>Stratégie Instagram & TikTok avancée</li>
+          <li>Bots, UGC, affiliation & community management</li>
+          <li>Droits MRR inclus → revends & garde 100%</li>
+          <li>Accès immédiat à vie</li>
+        </ul>
+        <a href="https://elmdigital.vip/shop/a51daf0e-87a4-4ea0-bf5a-8d713475e2b1?affiliateLinkId=cd6a6527-b083-4913-99af-e921379b136d" target="_blank" class="pack-cta pack-cta-outline">Accéder à ELM →</a>
+        <p class="pack-note">✅ Paiement sécurisé · Accès immédiat · MRR inclus</p>
+      </div>
+
+      <!-- PACK CLM -->
+      <div class="pack featured">
+        <div class="pack-badge">🔥 Formation 2</div>
+        <div class="pack-name">CLM</div>
+        <div class="pack-sub">Le deuxième pack de la famille ELM Digital. Approfondis ta maîtrise et amplifie tes revenus en ligne.</div>
+        <div class="pack-divider"></div>
+        <div class="pack-price"><sup>€</sup>497</div>
+        <div class="pack-old">Valeur : 997€</div>
+        <ul class="pack-feats">
+          <li>Modules avancés de création de contenu digital</li>
+          <li>Stratégies de lancement & tunnels de vente optimisés</li>
+          <li>Email marketing & automatisation complète</li>
+          <li>Création de produits digitaux & offres premium</li>
+          <li>Branding, SEO & publicité en ligne</li>
+          <li>Droits MRR inclus → revends & garde 100%</li>
+          <li>Accès immédiat à vie</li>
+        </ul>
+        <a href="https://elmdigital.vip/shop/88d7a02d-7dfa-466b-866e-067a80d2f28a" target="_blank" class="pack-cta pack-cta-blue">Accéder à CLM →</a>
+        <p class="pack-note">✅ Paiement sécurisé · Accès immédiat · MRR inclus</p>
+      </div>
+
+    </div>
+
+    <!-- PROMO LES 2 -->
+    <div style="margin-top:24px;background:var(--bg3);border:1px solid var(--blue-line);border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;text-align:left">
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);margin-bottom:6px">💎 Prends les 2 formations</div>
+        <div style="font-size:14px;color:var(--muted);font-weight:300">Double ta valeur, double tes revenus. ELM + CLM = l'arsenal complet du business digital.</div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://elmdigital.vip/shop/a51daf0e-87a4-4ea0-bf5a-8d713475e2b1?affiliateLinkId=cd6a6527-b083-4913-99af-e921379b136d" target="_blank" class="pack-cta pack-cta-outline" style="padding:12px 24px;font-size:13px">ELM →</a>
+        <a href="https://elmdigital.vip/shop/88d7a02d-7dfa-466b-866e-067a80d2f28a" target="_blank" class="pack-cta pack-cta-blue" style="padding:12px 24px;font-size:13px">CLM →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ── COMPARATIF ─────────────────────────────────────────────── -->
+<section>
+  <div class="wrap">
+    <span class="s-tag">Comparatif</span>
+    <h2 class="s-h">ELM vs CLM —<br><span class="blue">quelle différence ?</span></h2>
+    <p class="s-d">Les deux formations sont complémentaires. Voici ce qui les distingue.</p>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Fonctionnalité</th>
+          <th>ELM</th>
+          <th>CLM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Droits de revente MRR 100%</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Marketing Instagram & TikTok</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Copywriting & storytelling</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>E-commerce & boutique MRR</td><td><span class="yes">✓</span></td><td><span class="no">–</span></td></tr>
+        <tr><td>Bots & automatisation DM</td><td><span class="yes">✓</span></td><td><span class="no">–</span></td></tr>
+        <tr><td>UGC & e-books viraux</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Tunnels de vente avancés</td><td><span class="no">–</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Email marketing & séquences</td><td><span class="no">–</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>SEO & publicité payante</td><td><span class="no">–</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Création de produits digitaux</td><td><span class="no">–</span></td><td><span class="yes">✓</span></td></tr>
+        <tr><td>Accès à vie + mises à jour</td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ── MODULES ─────────────────────────────────────────────────── -->
+<section style="background:var(--bg2)" id="modules">
+  <div class="wrap">
+    <span class="s-tag">Au programme</span>
+    <h2 class="s-h">Ce que tu vas<br><span class="blue">maîtriser</span></h2>
+    <p class="s-d">Les thèmes couverts dans les deux formations ELM & CLM.</p>
+    <div class="mod-grid">
+      <div class="mod"><div class="mod-n">ELM · 01</div><h3>Mindset Entrepreneurial</h3><p>Adopte l'état d'esprit des entrepreneurs qui réussissent. Fondations mentales et routines gagnantes.</p></div>
+      <div class="mod"><div class="mod-n">ELM · 02</div><h3>E-commerce & MRR</h3><p>Crée et automatise ta boutique. Vends la formation et garde 100% de chaque vente.</p></div>
+      <div class="mod"><div class="mod-n">ELM · 03</div><h3>Copywriting & Storytelling</h3><p>Écris des textes qui vendent sans forcer. Hooks, légendes, pages de vente.</p></div>
+      <div class="mod"><div class="mod-n">ELM · 04</div><h3>Instagram & TikTok</h3><p>Stratégie complète pour créer du contenu viral et convertir ton audience en clients.</p></div>
+      <div class="mod"><div class="mod-n">ELM · 05</div><h3>Bots & Automatisation</h3><p>Automatise tes DM et vends pendant que tu dors. ManyChat et outils pro inclus.</p></div>
+      <div class="mod"><div class="mod-n">ELM · 06</div><h3>Affiliation & UGC</h3><p>Multiplie tes sources de revenus avec l'affiliation et la création de contenu UGC monétisable.</p></div>
+      <div class="mod"><div class="mod-n">CLM · 01</div><h3>Tunnels de vente avancés</h3><p>Construis des funnels qui convertissent de A à Z. Pages, emails, upsells et automatisations.</p></div>
+      <div class="mod"><div class="mod-n">CLM · 02</div><h3>Email Marketing</h3><p>Construis ta liste, écris des séquences qui vendent et génère des revenus récurrents par email.</p></div>
+      <div class="mod"><div class="mod-n">CLM · 03</div><h3>Création de produits digitaux</h3><p>Crée tes propres formations, ebooks et contenus premium à revendre ou à offrir.</p></div>
+      <div class="mod"><div class="mod-n">CLM · 04</div><h3>SEO & Publicité</h3><p>Attire du trafic organique et payant. Stratégies Google, Meta Ads et TikTok Ads.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ── TESTI ───────────────────────────────────────────────────── -->
+<section class="testi-bg">
+  <div class="wrap" style="text-align:center">
+    <span class="s-tag">Témoignages</span>
+    <h2 class="s-h">Ils ont <span class="blue">lancé leur business</span></h2>
+    <p class="s-d" style="margin:0 auto">Des personnes comme toi qui ont sauté le pas et obtenu des résultats.</p>
+    <div class="tgrid">
+      <div class="tc"><div class="tst">★★★★★</div><p class="tt">"Première vente 48h après avoir reçu la formation ELM. Je n'en revenais pas, le système est vraiment clé en main."</p><div class="tn">Yasmine R.</div><div class="tr">Paris · Formation ELM</div></div>
+      <div class="tc"><div class="tst">★★★★★</div><p class="tt">"J'ai pris les deux formations. ELM pour les bases, CLM pour les tunnels de vente. En 1 mois j'avais rentabilisé x4."</p><div class="tn">Karim M.</div><div class="tr">Lyon · ELM + CLM</div></div>
+      <div class="tc"><div class="tst">★★★★★</div><p class="tt">"La CLM m'a tout appris sur l'email marketing. Aujourd'hui j'ai une liste de 800 contacts et des ventes automatiques."</p><div class="tn">Inès B.</div><div class="tr">Bordeaux · Formation CLM</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ── FAQ ────────────────────────────────────────────────────── -->
+<section>
+  <div class="wrap" style="text-align:center">
+    <span class="s-tag">FAQ</span>
+    <h2 class="s-h">Questions <span class="blue">fréquentes</span></h2>
+    <div class="faq-wrap">
+      <div class="fi"><button class="fq" onclick="f(this)">Quelle différence entre ELM et CLM ? <span class="ic">+</span></button><div class="fa">ELM est idéale pour démarrer : elle couvre les bases du marketing digital, Instagram, TikTok, le MRR et l'automatisation. CLM va plus loin avec les tunnels de vente, l'email marketing, le SEO et la création de produits digitaux. Les deux sont complémentaires et vendues avec les droits MRR.</div></div>
+      <div class="fi"><button class="fq" onclick="f(this)">Est-ce que je peux acheter les deux ? <span class="ic">+</span></button><div class="fa">Oui, et c'est même recommandé. ELM + CLM te donnent l'arsenal complet pour maîtriser le marketing digital dans tous ses aspects et doubler tes possibilités de revenus.</div></div>
+      <div class="fi"><button class="fq" onclick="f(this)">C'est quoi le MRR exactement ? <span class="ic">+</span></button><div class="fa">Le MRR (Master Resell Rights) est une licence qui te permet de revendre la formation à ton propre prix et de garder 100% des bénéfices. Pas de commission, pas d'intermédiaire. Tu achètes une fois, tu revends à l'infini.</div></div>
+      <div class="fi"><button class="fq" onclick="f(this)">J'ai besoin d'expérience pour commencer ? <span class="ic">+</span></button><div class="fa">Non. Les deux formations sont conçues pour les débutants complets. Tout est expliqué étape par étape. Tu n'as besoin que d'un smartphone et de ta motivation.</div></div>
+      <div class="fi"><button class="fq" onclick="f(this)">Comment me contacter pour des questions ? <span class="ic">+</span></button><div class="fa">Envoie un message directement sur Instagram @azrenagency.dgtl — je réponds à tous les DM. Tu peux aussi accéder aux formations directement via les liens de cette page.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- ── FINAL CTA ───────────────────────────────────────────────── -->
+<section class="fcta">
+  <h2>Prêt à générer tes<br><span class="blue">premiers revenus ?</span></h2>
+  <p>Choisis ta formation, revends-la à l'infini.<br>100% des bénéfices pour toi dès la première vente.</p>
+  <div class="fcta-btns">
+    <a href="https://elmdigital.vip/shop/a51daf0e-87a4-4ea0-bf5a-8d713475e2b1?affiliateLinkId=cd6a6527-b083-4913-99af-e921379b136d" target="_blank" class="btn-ghost">Formation ELM →</a>
+    <a href="https://elmdigital.vip/shop/88d7a02d-7dfa-466b-866e-067a80d2f28a" target="_blank" class="btn-main">Formation CLM →</a>
+  </div>
+  <br>
+  <a href="https://www.instagram.com/azrenagency.dgtl" target="_blank" class="insta-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+    &nbsp;@azrenagency.dgtl
+  </a>
+</section>
+
+<footer>
+  <a class="logo" href="#" style="font-size:16px"><span class="logo-dot"></span>AZREN</a>
+  <p>© 2026 AZREN – Tous droits réservés</p>
+  <a href="https://www.instagram.com/azrenagency.dgtl" target="_blank">@azrenagency.dgtl</a>
+</footer>
+
+<script>
+function f(btn){
+  const item=btn.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.fi.open').forEach(el=>el.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+</script>
+</body>
+</html>
